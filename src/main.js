@@ -2,7 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import './assets/index.css' // TailwindCSS styles
+// ✅ Correct Tailwind CSS path
+import './assets/main.css'
 
 const app = createApp(App)
 
