@@ -1,7 +1,7 @@
 <!-- src/views/WelcomeScreen.vue -->
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-white text-center px-6">
-    <img src="/logo.png" alt="StatLine Logo" class="w-24 h-24 mb-6" />
+    <img src="/logo.png" alt="Statline logo" class="w-32 h-auto mx-auto mb-6" />
     <h1 class="text-4xl font-bold text-blue-600 mb-4">Welcome to StatLine</h1>
     <p class="text-gray-700 text-lg mb-8">Your edge in sports analytics and predictions.</p>
     <button
