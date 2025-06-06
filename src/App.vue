@@ -1,6 +1,9 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import BaseNav from './components/BaseNav.vue'
+
+const route = useRoute()
+const isWelcome = route.path === '/'
 </script>
 
 <template>
@@ -9,8 +12,3 @@ import BaseNav from './components/BaseNav.vue'
     <BaseNav v-if="!isWelcome" />
   </div>
 </template>
-
-<script setup>
-const route = useRoute()
-const isWelcome = route.path === '/'
-</script>
