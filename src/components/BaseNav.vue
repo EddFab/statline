@@ -1,5 +1,7 @@
 <template>
-  <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-md flex justify-around py-2 z-50">
+  <nav
+    class="fixed bottom-4 left-0 right-0 bg-white shadow-md flex justify-around py-3 z-50 rounded-t-xl mx-4"
+  >
     <RouterLink
       to="/home"
       class="flex flex-col items-center text-sm"
