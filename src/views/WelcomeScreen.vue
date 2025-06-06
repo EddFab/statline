@@ -25,7 +25,7 @@ const goToHome = () => {
 
 <style scoped>
 .fade-enter-active {
-  transition: opacity 0.8s ease;
+  transition: opacity 2s ease;
 }
 .fade-enter-from {
   opacity: 0;
