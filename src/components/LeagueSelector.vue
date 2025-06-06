@@ -23,6 +23,10 @@ const leagues = [
   { name: 'NBA', icon: '🏀' },
   { name: 'NFL', icon: '🏈' },
   { name: 'Soccer', icon: '⚽' },
+  { name: 'WNBA', icon: '🏀' },
+  { name: 'NCAAF', icon: '🏈' },
+  { name: 'NCAAM', icon: '🏀' },
+  { name: 'NCAAW', icon: '🏀' },
 ]
 
 const selectedLeague = ref(leagues[0].name)
