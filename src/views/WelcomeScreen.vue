@@ -1,33 +1,23 @@
 <!-- src/views/WelcomeScreen.vue -->
 <template>
-  <div
-    class="flex items-center justify-center h-screen bg-white transition-opacity duration-500"
-    :class="{ 'opacity-0': faded }"
-  >
-    <h1 class="text-3xl font-bold text-blue-600 animate-pulse">Welcome to StatLine</h1>
+  <div class="flex flex-col items-center justify-center min-h-screen bg-white text-center px-6">
+    <img src="/logo.png" alt="StatLine Logo" class="w-24 h-24 mb-6" />
+    <h1 class="text-4xl font-bold text-blue-600 mb-4">Welcome to StatLine</h1>
+    <p class="text-gray-700 text-lg mb-8">Your edge in sports analytics and predictions.</p>
+    <button
+      @click="goToHome"
+      class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition duration-300"
+    >
+      Enter App
+    </button>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-
-const faded = ref(false)
 const router = useRouter()
 
-onMounted(() => {
-  setTimeout(() => {
-    faded.value = true
-    setTimeout(() => {
-      router.push('/home')
-    }, 500) // wait for fade out transition to complete
-  }, 2000) // splash screen duration
-})
-</script>
-
-<style scoped>
-/* Optional: ensure the fade is smooth */
-.opacity-0 {
-  opacity: 0;
+const goToHome = () => {
+  router.push('/home')
 }
-</style>
+</script>
