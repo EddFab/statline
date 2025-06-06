@@ -1,9 +1,10 @@
 <script setup>
 import { useRoute } from 'vue-router'
+import { computed } from 'vue'
 import BaseNav from './components/BaseNav.vue'
 
 const route = useRoute()
-const isWelcome = route.path === '/'
+const isWelcome = computed(() => route.path === '/')
 </script>
 
 <template>
