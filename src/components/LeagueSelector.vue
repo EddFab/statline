@@ -6,7 +6,7 @@
       @click="selectLeague(league.name)"
       :class="[
         'flex items-center px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap',
-        selectedLeague === league.name ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800',
+        props.selected === league.name ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800',
       ]"
     >
       <span v-if="league.icon" class="mr-2 text-lg">{{ league.icon }}</span>
@@ -29,10 +29,13 @@ const leagues = [
   { name: 'NCAAW', icon: '🏀' },
 ]
 
-const selectedLeague = ref(leagues[0].name)
+const props = defineProps({
+  selected: String,
+})
+
+const emit = defineEmits(['update:selected'])
 
 const selectLeague = (league) => {
-  selectedLeague.value = league
-  // Emit or use your state management/store to update the view
+  emit('update:selected', league)
 }
 </script>
