@@ -69,6 +69,7 @@ const fetchMatchups = async () => {
           score: away.score,
         },
         time,
+        date: new Date(event.date).toISOString().slice(0, 10),
       }
     })
   } catch (error) {
@@ -78,7 +79,8 @@ const fetchMatchups = async () => {
 
 onMounted(fetchMatchups)
 
+const today = new Date().toISOString().slice(0, 10)
 const filteredMatchups = computed(() =>
-  allMatchups.value.filter((m) => m.league === selectedLeague.value),
+  allMatchups.value.filter((m) => m.league === selectedLeague.value && m.date === today),
 )
 </script>
