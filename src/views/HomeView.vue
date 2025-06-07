@@ -7,25 +7,25 @@
       :key="matchup.time"
       class="mt-4 p-4 border rounded-lg shadow-md bg-white dark:bg-gray-800"
     >
-      <div class="grid grid-cols-3 gap-2 items-center w-full text-center">
-        <div class="flex items-center space-x-2 justify-start">
+      <div class="grid grid-cols-3 gap-4 items-center w-full text-center">
+        <div class="flex items-center justify-start space-x-2 min-w-0">
           <img :src="matchup.away.logo" alt="Away Team Logo" class="h-6 w-6" />
-          <span class="text-sm font-semibold">{{ matchup.away.abbreviation }}</span>
-          <span v-if="matchup.away.score" class="text-sm font-bold text-blue-600">
+          <span class="text-sm font-semibold w-8 text-left">{{ matchup.away.abbreviation }}</span>
+          <span v-if="matchup.away.score" class="text-sm font-bold text-blue-600 w-4 text-left">
             {{ matchup.away.score }}
           </span>
         </div>
-        <div>
-          <div class="text-xs text-gray-500">{{ matchup.time }}</div>
+        <div class="flex flex-col items-center justify-center min-w-0">
+          <div class="text-xs text-gray-500 whitespace-nowrap">{{ matchup.time }}</div>
           <div v-if="matchup.status !== 'Scheduled'" class="text-[10px] text-gray-400">
             {{ matchup.status }}
           </div>
         </div>
-        <div class="flex items-center space-x-2 justify-end">
-          <span v-if="matchup.home.score" class="text-sm font-bold text-blue-600">
+        <div class="flex items-center justify-end space-x-2 min-w-0">
+          <span v-if="matchup.home.score" class="text-sm font-bold text-blue-600 w-4 text-right">
             {{ matchup.home.score }}
           </span>
-          <span class="text-sm font-semibold">{{ matchup.home.abbreviation }}</span>
+          <span class="text-sm font-semibold w-8 text-right">{{ matchup.home.abbreviation }}</span>
           <img :src="matchup.home.logo" alt="Home Team Logo" class="h-6 w-6" />
         </div>
       </div>
