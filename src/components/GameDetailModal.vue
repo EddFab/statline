@@ -64,5 +64,22 @@ const props = defineProps({
   close: Function,
 })
 
-const gameData = computed(() => props.game || {})
+const gameData = computed(() => {
+  const g = props.game || {}
+  return {
+    homeLogo: g.homeLogo || '',
+    homeName: g.homeName || 'Home',
+    homeScore: g.homeScore ?? '-',
+    awayLogo: g.awayLogo || '',
+    awayName: g.awayName || 'Away',
+    awayScore: g.awayScore ?? '-',
+    status: g.status || 'N/A',
+    startTime: g.startTime || 'TBD',
+    homeRecord: g.homeRecord || '—',
+    awayRecord: g.awayRecord || '—',
+    venue: g.venue || '—',
+    broadcast: g.broadcast || '—',
+    type: g.type || '—',
+  }
+})
 </script>
