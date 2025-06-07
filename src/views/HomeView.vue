@@ -1,55 +1,44 @@
-<template>
-  <div class="p-4">
-    <LeagueSelector class="mb-4" v-model:selected="selectedLeague" />
-
-    <div class="text-center">
-      <h1 class="text-2xl font-bold">Welcome to StatLine</h1>
-      <p class="text-gray-500 mt-2">This is your home page.</p>
-      <div class="mt-6">
-        <h2 class="text-lg font-semibold mb-2">Today's Matchups</h2>
-        <div
-          v-for="matchup in filteredMatchups"
-          :key="matchup.home + '-' + matchup.away"
-          class="p-4 mb-3 bg-gray-100 rounded-lg shadow text-center"
-        >
-          <div class="text-lg font-bold">{{ matchup.away }} @ {{ matchup.home }}</div>
-          <div class="text-sm text-gray-600">Start Time: {{ matchup.time }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import LeagueSelector from '@/components/LeagueSelector.vue'
 
 const selectedLeague = ref('MLB')
+const allMatchups = ref([])
 
-const allMatchups = [
-  {
-    league: 'MLB',
-    home: 'Yankees',
-    away: 'Red Sox',
-    time: '7:05 PM',
-  },
-  {
-    league: 'MLB',
-    home: 'Dodgers',
-    away: 'Giants',
-    time: '9:40 PM',
-  },
-  {
-    league: 'NBA',
-    home: 'Lakers',
-    away: 'Warriors',
-    time: '8:00 PM',
-  },
-]
+const fetchMatchups = async () => {
+  try {
+    const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard')
+    const data = await res.json()
+
+    allMatchups.value = data.events.map((event) => {
+      const home = event.competitions[0].competitors.find((c) => c.homeAway === 'home')
+      const away = event.competitions[0].competitors.find((c) => c.homeAway === 'away')
+      const time = new Date(event.date).toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      })
+
+      return {
+        league: 'MLB',
+        home: {
+          name: home.team.displayName,
+          logo: home.team.logo,
+        },
+        away: {
+          name: away.team.displayName,
+          logo: away.team.logo,
+        },
+        time,
+      }
+    })
+  } catch (error) {
+    console.error('Error fetching matchups:', error)
+  }
+}
+
+onMounted(fetchMatchups)
 
 const filteredMatchups = computed(() =>
-  allMatchups.filter((m) => m.league === selectedLeague.value),
+  allMatchups.value.filter((m) => m.league === selectedLeague.value),
 )
 </script>
-
-<style scoped></style>
