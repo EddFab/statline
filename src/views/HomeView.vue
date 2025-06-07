@@ -7,15 +7,26 @@
       :key="matchup.time"
       class="mt-4 p-4 border rounded-lg shadow-md bg-white dark:bg-gray-800"
     >
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between w-full">
         <div class="flex items-center space-x-2">
           <img :src="matchup.away.logo" alt="Away Team Logo" class="h-6 w-6" />
           <span class="text-sm font-semibold">{{ matchup.away.name }}</span>
+          <span v-if="matchup.away.score" class="text-sm font-bold text-blue-600">{{
+            matchup.away.score
+          }}</span>
         </div>
-        <span class="text-xs text-gray-500">{{ matchup.time }}</span>
+        <div class="text-center">
+          <span class="text-xs block text-gray-500">{{ matchup.time }}</span>
+          <span v-if="matchup.status !== 'Scheduled'" class="text-[10px] text-gray-400">{{
+            matchup.status
+          }}</span>
+        </div>
         <div class="flex items-center space-x-2">
-          <img :src="matchup.home.logo" alt="Home Team Logo" class="h-6 w-6" />
+          <span v-if="matchup.home.score" class="text-sm font-bold text-blue-600">{{
+            matchup.home.score
+          }}</span>
           <span class="text-sm font-semibold">{{ matchup.home.name }}</span>
+          <img :src="matchup.home.logo" alt="Home Team Logo" class="h-6 w-6" />
         </div>
       </div>
     </div>
@@ -34,8 +45,9 @@ const fetchMatchups = async () => {
     const data = await res.json()
 
     allMatchups.value = data.events.map((event) => {
-      const home = event.competitions[0].competitors.find((c) => c.homeAway === 'home')
-      const away = event.competitions[0].competitors.find((c) => c.homeAway === 'away')
+      const competition = event.competitions[0]
+      const home = competition.competitors.find((c) => c.homeAway === 'home')
+      const away = competition.competitors.find((c) => c.homeAway === 'away')
       const time = new Date(event.date).toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit',
@@ -43,13 +55,16 @@ const fetchMatchups = async () => {
 
       return {
         league: 'MLB',
+        status: event.status.type.description,
         home: {
           name: home.team.displayName,
           logo: home.team.logo,
+          score: home.score,
         },
         away: {
           name: away.team.displayName,
           logo: away.team.logo,
+          score: away.score,
         },
         time,
       }
