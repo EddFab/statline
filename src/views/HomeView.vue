@@ -31,7 +31,12 @@
         </div>
       </div>
     </div>
-    <GameDetailModal v-if="showModal" :game="selectedGame" :close="closeModal" />
+    <GameDetailModal
+      v-if="showModal"
+      :game="selectedGame"
+      :close="closeModal"
+      class="fixed bottom-0 left-0 w-full z-50"
+    />
   </div>
 </template>
 <script setup>

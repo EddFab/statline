@@ -36,6 +36,21 @@
           <p class="font-bold">{{ game.awayRecord }}</p>
         </div>
       </div>
+
+      <div class="mt-6 px-4 text-sm text-gray-700 space-y-2">
+        <div class="flex justify-between">
+          <span class="font-medium text-gray-600">Venue:</span>
+          <span>{{ game.venue }}</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="font-medium text-gray-600">Broadcast:</span>
+          <span>{{ game.broadcast }}</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="font-medium text-gray-600">Game Type:</span>
+          <span>{{ game.type }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
