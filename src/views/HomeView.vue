@@ -10,7 +10,7 @@
       <div class="grid grid-cols-3 gap-2 items-center w-full text-center">
         <div class="flex items-center space-x-2 justify-start">
           <img :src="matchup.away.logo" alt="Away Team Logo" class="h-6 w-6" />
-          <span class="text-sm font-semibold">{{ matchup.away.name }}</span>
+          <span class="text-sm font-semibold">{{ matchup.away.abbreviation }}</span>
           <span v-if="matchup.away.score" class="text-sm font-bold text-blue-600">
             {{ matchup.away.score }}
           </span>
@@ -25,7 +25,7 @@
           <span v-if="matchup.home.score" class="text-sm font-bold text-blue-600">
             {{ matchup.home.score }}
           </span>
-          <span class="text-sm font-semibold">{{ matchup.home.name }}</span>
+          <span class="text-sm font-semibold">{{ matchup.home.abbreviation }}</span>
           <img :src="matchup.home.logo" alt="Home Team Logo" class="h-6 w-6" />
         </div>
       </div>
@@ -58,11 +58,13 @@ const fetchMatchups = async () => {
         status: event.status.type.description,
         home: {
           name: home.team.displayName,
+          abbreviation: home.team.abbreviation,
           logo: home.team.logo,
           score: home.score,
         },
         away: {
           name: away.team.displayName,
+          abbreviation: away.team.abbreviation,
           logo: away.team.logo,
           score: away.score,
         },
