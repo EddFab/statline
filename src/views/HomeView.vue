@@ -32,7 +32,7 @@
       </div>
     </div>
     <GameDetailModal
-      v-if="showModal"
+      v-if="selectedGame"
       :game="selectedGame"
       :close="closeModal"
       class="fixed bottom-0 left-0 w-full z-50"
@@ -93,15 +93,12 @@ const filteredMatchups = computed(() =>
 )
 
 const selectedGame = ref(null)
-const showModal = ref(false)
 
 function openModal(game) {
   selectedGame.value = game
-  showModal.value = true
 }
 
 function closeModal() {
-  showModal.value = false
   selectedGame.value = null
 }
 </script>
