@@ -5,6 +5,7 @@
   >
     <div class="bg-white w-full rounded-t-2xl p-4 pb-10 max-h-[70%] overflow-y-auto shadow-lg">
       <div class="w-12 h-1.5 bg-gray-300 rounded mx-auto mb-4"></div>
+      <p class="text-center text-sm text-gray-500 mb-2">Modal is open</p>
       <h2 class="text-center text-xl font-bold mb-4">Game Detail</h2>
 
       <div class="flex justify-between items-center px-4">
