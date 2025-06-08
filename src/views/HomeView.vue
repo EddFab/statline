@@ -105,8 +105,6 @@ function closeModal() {
 }
 </script>
 
-</script>
-
 <style>
 .slide-up-enter-active,
 .slide-up-leave-active {
