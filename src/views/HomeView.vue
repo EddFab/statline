@@ -31,12 +31,14 @@
         </div>
       </div>
     </div>
-    <GameDetailModal
-      v-if="selectedGame"
-      :game="selectedGame"
-      :close="closeModal"
-      class="fixed bottom-0 left-0 w-full z-50"
-    />
+    <Transition name="slide-up">
+      <GameDetailModal
+        v-if="selectedGame"
+        :game="selectedGame"
+        :close="closeModal"
+        class="fixed bottom-0 left-0 w-full h-[70vh] z-50 bg-white dark:bg-gray-900 rounded-t-xl shadow-lg"
+      />
+    </Transition>
   </div>
 </template>
 <script setup>
@@ -102,3 +104,22 @@ function closeModal() {
   selectedGame.value = null
 }
 </script>
+
+</script>
+
+<style>
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(100%);
+}
+
+.slide-up-enter-to,
+.slide-up-leave-from {
+  transform: translateY(0%);
+}
+</style>
