@@ -58,10 +58,12 @@ const fetchMatchups = async () => {
       const competition = event.competitions[0]
       const home = competition.competitors.find((c) => c.homeAway === 'home')
       const away = competition.competitors.find((c) => c.homeAway === 'away')
-      const time = new Date(event.date).toLocaleTimeString([], {
+      const dateObj = new Date(event.date)
+      const time = dateObj.toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit',
       })
+      const localDate = dateObj.toLocaleDateString('en-CA') // Format: YYYY-MM-DD
 
       return {
         league: 'MLB',
@@ -79,7 +81,7 @@ const fetchMatchups = async () => {
           score: away.score,
         },
         time,
-        date: new Date(event.date).toISOString().slice(0, 10),
+        date: localDate,
       }
     })
   } catch (error) {
@@ -89,7 +91,7 @@ const fetchMatchups = async () => {
 
 onMounted(fetchMatchups)
 
-const today = new Date().toISOString().slice(0, 10)
+const today = new Date().toLocaleDateString('en-CA') // Format: YYYY-MM-DD
 const filteredMatchups = computed(() =>
   allMatchups.value.filter((m) => m.league === selectedLeague.value && m.date === today),
 )
