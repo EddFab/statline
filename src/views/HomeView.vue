@@ -50,8 +50,16 @@ const selectedLeague = ref('MLB')
 const allMatchups = ref([])
 
 const fetchMatchups = async () => {
+  console.log('📡 Attempting to fetch matchups...')
   try {
-    const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard')
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = String(today.getMonth() + 1).padStart(2, '0')
+    const day = String(today.getDate()).padStart(2, '0')
+    const currentDate = `${year}${month}${day}` // Format: YYYYMMDD
+    const res = await fetch(
+      `https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates=${currentDate}`,
+    )
     const data = await res.json()
 
     allMatchups.value = data.events.map((event) => {
@@ -83,6 +91,13 @@ const fetchMatchups = async () => {
         time,
         date: localDate,
       }
+    })
+
+    console.log(`✅ Matchups fetched at ${new Date().toLocaleString()}`)
+    allMatchups.value.forEach((m) => {
+      console.log(
+        `${m.date}: ${m.away.abbreviation} @ ${m.home.abbreviation} (${m.time}) - ${m.status}`,
+      )
     })
   } catch (error) {
     console.error('Error fetching matchups:', error)
