@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed bottom-4 left-0 right-0 bg-white shadow-md flex justify-around py-3 z-50 rounded-t-xl mx-4"
+    class="fixed bottom-4 left-0 right-0 bg-white shadow-md flex justify-around py-3 z-50 rounded-t-xl"
   >
     <RouterLink
       to="/home"
