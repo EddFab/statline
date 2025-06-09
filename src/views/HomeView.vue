@@ -6,7 +6,6 @@
       v-for="matchup in filteredMatchups"
       :key="matchup.time"
       class="mt-4 p-4 border rounded-lg shadow-md bg-white dark:bg-gray-800 cursor-pointer"
-      @click="openModal(matchup)"
     >
       <div class="grid grid-cols-3 gap-4 items-center w-full text-center">
         <div class="flex items-center justify-start space-x-2 min-w-0">
@@ -31,20 +30,11 @@
         </div>
       </div>
     </div>
-    <Transition name="slide-up">
-      <GameDetailModal
-        v-if="selectedGame"
-        :game="selectedGame"
-        :close="closeModal"
-        class="fixed bottom-0 left-0 w-full h-[70vh] z-50 bg-white dark:bg-gray-900 rounded-t-xl shadow-lg"
-      />
-    </Transition>
   </div>
 </template>
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import LeagueSelector from '@/components/LeagueSelector.vue'
-import GameDetailModal from '@/components/GameDetailModal.vue'
 
 const selectedLeague = ref('MLB')
 const allMatchups = ref([])
@@ -110,16 +100,6 @@ const today = new Date().toLocaleDateString('en-CA') // Format: YYYY-MM-DD
 const filteredMatchups = computed(() =>
   allMatchups.value.filter((m) => m.league === selectedLeague.value && m.date === today),
 )
-
-const selectedGame = ref(null)
-
-function openModal(game) {
-  selectedGame.value = game
-}
-
-function closeModal() {
-  selectedGame.value = null
-}
 </script>
 
 <style>
