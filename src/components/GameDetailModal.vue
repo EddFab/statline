@@ -1,11 +1,11 @@
 <template>
   <div
-    class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-end justify-center"
+    class="fixed bottom-0 left-0 right-0 h-[70vh] z-50 bg-black bg-opacity-50 flex items-end justify-center"
     @click.self="close"
   >
     <div
       v-if="props.game"
-      class="bg-white w-full rounded-t-2xl p-4 pb-10 max-h-[70%] overflow-y-auto shadow-lg"
+      class="bg-white w-full rounded-t-2xl p-4 pb-10 h-full overflow-y-auto shadow-lg"
     >
       <div class="w-12 h-1.5 bg-gray-300 rounded mx-auto mb-4"></div>
       <p class="text-center text-sm text-gray-500 mb-2">Modal is open</p>
