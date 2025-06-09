@@ -114,7 +114,6 @@ const filteredMatchups = computed(() =>
 const selectedGame = ref(null)
 
 function openModal(game) {
-  alert(`Game clicked: ${game.away.abbreviation} @ ${game.home.abbreviation}`)
   selectedGame.value = game
 }
 
