@@ -6,6 +6,7 @@
       v-for="matchup in filteredMatchups"
       :key="matchup.time"
       class="mt-4 p-4 border rounded-lg shadow-md bg-white dark:bg-gray-800 cursor-pointer"
+      @click="showModal = true"
     >
       <div class="grid grid-cols-3 gap-4 items-center w-full text-center">
         <div class="flex items-center justify-start space-x-2 min-w-0">
@@ -30,14 +31,17 @@
         </div>
       </div>
     </div>
+    <GameDetailModal v-if="showModal" @close="showModal = false" />
   </div>
 </template>
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import LeagueSelector from '@/components/LeagueSelector.vue'
+import GameDetailModal from '@/components/GameDetailModal.vue'
 
 const selectedLeague = ref('MLB')
 const allMatchups = ref([])
+const showModal = ref(false)
 
 const fetchMatchups = async () => {
   console.log('📡 Attempting to fetch matchups...')
