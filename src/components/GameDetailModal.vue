@@ -4,7 +4,25 @@
       <transition name="modal-slide">
         <div class="absolute bottom-0 w-full h-[70vh] bg-white rounded-t-xl shadow-lg">
           <!-- Game details go here -->
-          <div class="p-4 text-center text-gray-700 font-semibold">Game Detail Modal</div>
+          <div class="p-4 space-y-4">
+            <!-- Game Info Header -->
+            <div class="text-center">
+              <h2 class="text-xl font-bold text-gray-800">Team A vs Team B</h2>
+              <p class="text-sm text-gray-500">Today at 7:00 PM · In Progress</p>
+            </div>
+
+            <!-- Sample Prop Card -->
+            <div class="bg-gray-100 rounded-lg p-4 shadow">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-700 font-medium">Mookie Betts - Total Bases</span>
+                <span class="text-green-600 font-bold text-sm">64% Over</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-gray-800">+1.5</span>
+                <span class="text-gray-500 text-sm">Projection: 2.1</span>
+              </div>
+            </div>
+          </div>
         </div>
       </transition>
     </div>
