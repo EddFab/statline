@@ -18,7 +18,7 @@
 <style scoped>
 .modal-fade-enter-active,
 .modal-fade-leave-active {
-  transition: background-color 10s ease;
+  transition: background-color 30s ease;
 }
 .modal-fade-enter-from,
 .modal-fade-leave-to {
@@ -27,7 +27,7 @@
 
 .modal-slide-enter-active,
 .modal-slide-leave-active {
-  transition: transform 10s ease;
+  transition: transform 30s ease;
 }
 .modal-slide-enter-from,
 .modal-slide-leave-to {
