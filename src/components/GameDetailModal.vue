@@ -8,22 +8,22 @@
             <!-- Game Info Header -->
             <div class="text-center">
               <div class="flex justify-center items-center space-x-4">
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center w-16 h-16 justify-center">
                   <img
                     :src="matchup.away?.logo"
                     alt="Away Team Logo"
                     class="h-10 w-10 object-contain"
                   />
-                  <span class="text-sm text-gray-700">{{ matchup.away?.name }}</span>
+                  <span class="text-sm text-center truncate text-gray-700">{{ matchup.away?.name }}</span>
                 </div>
                 <span class="text-gray-500 font-semibold">vs</span>
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center w-16 h-16 justify-center">
                   <img
                     :src="matchup.home?.logo"
                     alt="Home Team Logo"
                     class="h-10 w-10 object-contain"
                   />
-                  <span class="text-sm text-gray-700">{{ matchup.home?.name }}</span>
+                  <span class="text-sm text-center truncate text-gray-700">{{ matchup.home?.name }}</span>
                 </div>
               </div>
               <p class="text-sm text-gray-500 mt-2 text-center">
