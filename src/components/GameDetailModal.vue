@@ -7,8 +7,28 @@
           <div class="p-4 space-y-4">
             <!-- Game Info Header -->
             <div class="text-center">
-              <h2 class="text-xl font-bold text-gray-800">Team A vs Team B</h2>
-              <p class="text-sm text-gray-500">Today at 7:00 PM · In Progress</p>
+              <div class="flex justify-center items-center space-x-4">
+                <div class="flex flex-col items-center">
+                  <img
+                    :src="matchup.away?.logo"
+                    alt="Away Team Logo"
+                    class="h-10 w-10 object-contain"
+                  />
+                  <span class="text-sm text-gray-700">{{ matchup.away?.name }}</span>
+                </div>
+                <span class="text-gray-500 font-semibold">vs</span>
+                <div class="flex flex-col items-center">
+                  <img
+                    :src="matchup.home?.logo"
+                    alt="Home Team Logo"
+                    class="h-10 w-10 object-contain"
+                  />
+                  <span class="text-sm text-gray-700">{{ matchup.home?.name }}</span>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500 mt-2 text-center">
+                {{ matchup.start_time }} · {{ matchup.status }}
+              </p>
             </div>
 
             <!-- Sample Prop Card -->
@@ -30,7 +50,9 @@
 </template>
 
 <script setup>
-// No logic yet
+defineProps({
+  matchup: Object,
+})
 </script>
 
 <style scoped>
