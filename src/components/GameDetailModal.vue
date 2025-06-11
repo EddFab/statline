@@ -83,6 +83,33 @@
                 <span class="text-gray-800 font-semibold">Hits</span>
               </div>
             </div>
+            <div class="mt-2 grid grid-cols-3 gap-x-2 text-sm text-gray-600">
+              <div class="space-y-1 text-xs">
+                <div>1. --</div>
+                <div>2. --</div>
+                <div>3. --</div>
+              </div>
+              <div class="text-center text-xs font-medium">Over 0.5</div>
+              <div class="space-y-1 text-xs text-right">
+                <div>1. --</div>
+                <div>2. --</div>
+                <div>3. --</div>
+              </div>
+            </div>
+            <div class="mt-1 grid grid-cols-3 gap-x-2 text-xs text-gray-600">
+              <div></div>
+              <div class="text-center text-xs font-medium">Top Overall</div>
+              <div></div>
+            </div>
+            <div class="mt-1 grid grid-cols-3 gap-x-2 text-xs text-gray-600">
+              <div></div>
+              <div class="space-y-1 text-xs text-center">
+                <div>1. --</div>
+                <div>2. --</div>
+                <div>3. --</div>
+              </div>
+              <div></div>
+            </div>
 
             <div class="bg-gray-100 rounded-lg p-4 shadow">
               <div class="flex justify-between items-center">
