@@ -64,12 +64,18 @@
               </div>
             </div>
             <div class="mt-2 grid grid-cols-3 items-center gap-x-2 text-sm text-gray-600">
-              <div class="text-center">--</div>
+              <div class="flex justify-center items-center">
+                <img :src="matchup.away?.logo" alt="Away Logo" class="h-5 w-5 object-contain" />
+              </div>
               <div class="text-center text-xs font-medium">Projected Runs</div>
-              <div class="text-center">--</div>
+              <div class="flex justify-center items-center">
+                <img :src="matchup.home?.logo" alt="Home Logo" class="h-5 w-5 object-contain" />
+              </div>
             </div>
-            <div class="mt-1 text-xs text-center text-gray-600">
-              Total: --
+            <div class="mt-1 grid grid-cols-3 items-center gap-x-2 text-xs text-gray-600">
+              <div class="text-center">--</div>
+              <div class="text-center">Total: --</div>
+              <div class="text-center">--</div>
             </div>
 
             <div class="bg-gray-100 rounded-lg p-4 shadow">
@@ -83,32 +89,37 @@
                 <span class="text-gray-800 font-semibold">Hits</span>
               </div>
             </div>
-            <div class="mt-2 grid grid-cols-3 gap-x-2 text-sm text-gray-600">
-              <div class="space-y-1 text-xs">
+            <div class="mt-2 grid grid-cols-3 text-xs text-gray-700 text-center gap-2">
+              <div class="flex justify-center items-center">
+                <img :src="matchup.away?.logo" alt="Away Logo" class="h-5 w-5 object-contain mb-1" />
+              </div>
+              <div></div>
+              <div class="flex justify-center items-center">
+                <img :src="matchup.home?.logo" alt="Home Logo" class="h-5 w-5 object-contain mb-1" />
+              </div>
+              <!-- Away Team -->
+              <div>
+                <div class="font-medium mb-1">Over 0.5</div>
                 <div>1. --</div>
                 <div>2. --</div>
                 <div>3. --</div>
               </div>
-              <div class="text-center text-xs font-medium">Over 0.5</div>
-              <div class="space-y-1 text-xs text-right">
+
+              <!-- Top Overall -->
+              <div>
+                <div class="font-medium mb-1">Top Overall</div>
                 <div>1. --</div>
                 <div>2. --</div>
                 <div>3. --</div>
               </div>
-            </div>
-            <div class="mt-1 grid grid-cols-3 gap-x-2 text-xs text-gray-600">
-              <div></div>
-              <div class="text-center text-xs font-medium">Top Overall</div>
-              <div></div>
-            </div>
-            <div class="mt-1 grid grid-cols-3 gap-x-2 text-xs text-gray-600">
-              <div></div>
-              <div class="space-y-1 text-xs text-center">
+
+              <!-- Home Team -->
+              <div>
+                <div class="font-medium mb-1">Over 0.5</div>
                 <div>1. --</div>
                 <div>2. --</div>
                 <div>3. --</div>
               </div>
-              <div></div>
             </div>
 
             <div class="bg-gray-100 rounded-lg p-4 shadow">
