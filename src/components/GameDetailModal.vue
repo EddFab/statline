@@ -37,15 +37,34 @@
               </p>
             </div>
 
-            <!-- Sample Prop Card -->
+            <!-- Sample Prop Cards -->
             <div class="bg-gray-100 rounded-lg p-4 shadow">
-              <div class="flex justify-between items-center mb-2">
-                <span class="text-gray-700 font-medium">Mookie Betts - Total Bases</span>
-                <span class="text-green-600 font-bold text-sm">64% Over</span>
-              </div>
               <div class="flex justify-between items-center">
-                <span class="text-2xl font-bold text-gray-800">+1.5</span>
-                <span class="text-gray-500 text-sm">Projection: 2.1</span>
+                <span class="text-gray-800 font-semibold">Moneyline</span>
+              </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-lg p-4 shadow">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-800 font-semibold">Total Runs</span>
+              </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-lg p-4 shadow">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-800 font-semibold">Spread</span>
+              </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-lg p-4 shadow">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-800 font-semibold">Hits</span>
+              </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-lg p-4 shadow">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-800 font-semibold">RBI</span>
               </div>
             </div>
           </div>
