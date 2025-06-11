@@ -2,7 +2,7 @@
   <transition name="modal-fade">
     <div class="fixed inset-0 z-50 bg-black/50" @click.self="$emit('close')">
       <transition name="modal-slide">
-        <div class="absolute bottom-0 w-full h-[70vh] bg-white rounded-t-xl shadow-lg">
+        <div class="absolute bottom-0 w-full h-[70vh] bg-white rounded-t-xl shadow-lg overflow-y-auto">
           <!-- Game details go here -->
           <div class="p-4 space-y-4">
             <!-- Game Info Header -->
@@ -63,6 +63,14 @@
                 <span class="text-gray-800 font-semibold">Total Runs</span>
               </div>
             </div>
+            <div class="mt-2 grid grid-cols-3 items-center gap-x-2 text-sm text-gray-600">
+              <div class="text-center">--</div>
+              <div class="text-center text-xs font-medium">Projected Runs</div>
+              <div class="text-center">--</div>
+            </div>
+            <div class="mt-1 text-xs text-center text-gray-600">
+              Total: --
+            </div>
 
             <div class="bg-gray-100 rounded-lg p-4 shadow">
               <div class="flex justify-between items-center">
@@ -88,9 +96,18 @@
   </transition>
 </template>
 
+
 <script setup>
+import { onMounted, onUnmounted } from 'vue'
 defineProps({
   matchup: Object,
+})
+
+onMounted(() => {
+  document.body.style.overflow = 'hidden'
+})
+onUnmounted(() => {
+  document.body.style.overflow = ''
 })
 </script>
 
