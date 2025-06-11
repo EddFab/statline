@@ -127,6 +127,39 @@
                 <span class="text-gray-800 font-semibold">RBI</span>
               </div>
             </div>
+            <div class="mt-2 grid grid-cols-3 text-xs text-gray-700 text-center gap-2">
+              <div class="flex justify-center items-center">
+                <img :src="matchup.away?.logo" alt="Away Logo" class="h-5 w-5 object-contain mb-1" />
+              </div>
+              <div></div>
+              <div class="flex justify-center items-center">
+                <img :src="matchup.home?.logo" alt="Home Logo" class="h-5 w-5 object-contain mb-1" />
+              </div>
+
+              <!-- Away Team -->
+              <div>
+                <div class="font-medium mb-1">Under 0.5</div>
+                <div>1. --</div>
+                <div>2. --</div>
+                <div>3. --</div>
+              </div>
+
+              <!-- Top Overall -->
+              <div>
+                <div class="font-medium mb-1">Top Overall</div>
+                <div>1. --</div>
+                <div>2. --</div>
+                <div>3. --</div>
+              </div>
+
+              <!-- Home Team -->
+              <div>
+                <div class="font-medium mb-1">Under 0.5</div>
+                <div>1. --</div>
+                <div>2. --</div>
+                <div>3. --</div>
+              </div>
+            </div>
           </div>
         </div>
       </transition>
