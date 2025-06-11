@@ -100,25 +100,25 @@
               <!-- Away Team -->
               <div>
                 <div class="font-medium mb-1">Over 0.5</div>
-                <div>1. --</div>
-                <div>2. --</div>
-                <div>3. --</div>
+                <div>1. -- (--)%</div>
+                <div>2. -- (--)%</div>
+                <div>3. -- (--)%</div>
               </div>
 
               <!-- Top Overall -->
               <div>
                 <div class="font-medium mb-1">Top Overall</div>
-                <div>1. --</div>
-                <div>2. --</div>
-                <div>3. --</div>
+                <div>1. -- (--)%</div>
+                <div>2. -- (--)%</div>
+                <div>3. -- (--)%</div>
               </div>
 
               <!-- Home Team -->
               <div>
                 <div class="font-medium mb-1">Over 0.5</div>
-                <div>1. --</div>
-                <div>2. --</div>
-                <div>3. --</div>
+                <div>1. -- (--)%</div>
+                <div>2. -- (--)%</div>
+                <div>3. -- (--)%</div>
               </div>
             </div>
 
@@ -139,25 +139,25 @@
               <!-- Away Team -->
               <div>
                 <div class="font-medium mb-1">Under 0.5</div>
-                <div>1. --</div>
-                <div>2. --</div>
-                <div>3. --</div>
+                <div>1. -- (--)%</div>
+                <div>2. -- (--)%</div>
+                <div>3. -- (--)%</div>
               </div>
 
               <!-- Top Overall -->
               <div>
                 <div class="font-medium mb-1">Top Overall</div>
-                <div>1. --</div>
-                <div>2. --</div>
-                <div>3. --</div>
+                <div>1. -- (--)%</div>
+                <div>2. -- (--)%</div>
+                <div>3. -- (--)%</div>
               </div>
 
               <!-- Home Team -->
               <div>
                 <div class="font-medium mb-1">Under 0.5</div>
-                <div>1. --</div>
-                <div>2. --</div>
-                <div>3. --</div>
+                <div>1. -- (--)%</div>
+                <div>2. -- (--)%</div>
+                <div>3. -- (--)%</div>
               </div>
             </div>
           </div>
