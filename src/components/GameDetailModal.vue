@@ -43,6 +43,20 @@
                 <span class="text-gray-800 font-semibold">Moneyline</span>
               </div>
             </div>
+            <div class="mt-2 grid grid-cols-3 items-center gap-x-2 text-sm text-gray-600">
+              <div class="flex justify-center items-center">
+                <img :src="matchup.away?.logo" alt="Away Logo" class="h-5 w-5 object-contain" />
+              </div>
+              <div class="text-center text-xs font-medium">Win Probability</div>
+              <div class="flex justify-center items-center">
+                <img :src="matchup.home?.logo" alt="Home Logo" class="h-5 w-5 object-contain" />
+              </div>
+            </div>
+            <div class="mt-1 grid grid-cols-3 items-center gap-x-2 text-xs text-gray-600">
+              <div class="text-center">--%</div>
+              <div></div>
+              <div class="text-center">--%</div>
+            </div>
 
             <div class="bg-gray-100 rounded-lg p-4 shadow">
               <div class="flex justify-between items-center">
