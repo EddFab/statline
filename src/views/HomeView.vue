@@ -69,6 +69,7 @@ const fetchMatchups = async () => {
       const localDate = dateObj.toLocaleDateString('en-CA') // Format: YYYY-MM-DD
 
       return {
+        id: event.id,
         league: 'MLB',
         status: event.status.type.description,
         home: {

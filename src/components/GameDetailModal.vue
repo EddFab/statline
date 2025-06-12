@@ -169,8 +169,8 @@
 
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
-defineProps({
+import { onMounted, onUnmounted, ref, watch } from 'vue'
+const props = defineProps({
   matchup: Object,
 })
 
@@ -180,6 +180,15 @@ onMounted(() => {
 onUnmounted(() => {
   document.body.style.overflow = ''
 })
+
+const gameData = ref(null)
+
+watch(() => props.matchup, (newMatchup) => {
+  if (newMatchup?.id) {
+    console.log('Fetching game data for ID:', newMatchup.id)
+    // Placeholder: Replace with API fetch logic
+  }
+}, { immediate: true })
 </script>
 
 <style scoped>
