@@ -73,12 +73,14 @@ const fetchMatchups = async () => {
         league: 'MLB',
         status: event.status.type.description,
         home: {
+          id: home.team.id,
           name: home.team.displayName,
           abbreviation: home.team.abbreviation,
           logo: home.team.logo,
           score: home.score,
         },
         away: {
+          id: away.team.id,
           name: away.team.displayName,
           abbreviation: away.team.abbreviation,
           logo: away.team.logo,
