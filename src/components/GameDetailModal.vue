@@ -181,14 +181,53 @@ onUnmounted(() => {
   document.body.style.overflow = ''
 })
 
+
 const gameData = ref(null)
+const teamStats = ref({ home: null, away: null })
 
 watch(() => props.matchup, (newMatchup) => {
   if (newMatchup?.id) {
     console.log('Fetching game data for ID:', newMatchup.id)
     // Placeholder: Replace with API fetch logic
   }
+  if (newMatchup?.id && newMatchup.home?.id && newMatchup.away?.id) {
+    fetchTeamStats(Number(newMatchup.home.id), Number(newMatchup.away.id))
+  }
 }, { immediate: true })
+
+async function fetchTeamStats(homeId, awayId) {
+  try {
+    console.log('Home ID:', homeId, 'Away ID:', awayId)
+    const [homeRes, awayRes] = await Promise.all([
+      fetch(`https://statsapi.mlb.com/api/v1/teams/${homeId}/stats?stats=seasonStats&group=hitting&season=2025`),
+      fetch(`https://statsapi.mlb.com/api/v1/teams/${awayId}/stats?stats=seasonStats&group=hitting&season=2025`)
+    ]);
+
+    const [homeData, awayData] = await Promise.all([homeRes.json(), awayRes.json()]);
+
+    const homeStats = homeData.stats?.[0]?.splits?.[0]?.stat || {};
+    const awayStats = awayData.stats?.[0]?.splits?.[0]?.stat || {};
+
+    teamStats.value.home = {
+      battingAverage: homeStats.battingAverage ?? 'N/A',
+      onBasePercentage: homeStats.onBasePercentage ?? 'N/A',
+      sluggingPercentage: homeStats.sluggingPercentage ?? 'N/A'
+    };
+
+    teamStats.value.away = {
+      battingAverage: awayStats.battingAverage ?? 'N/A',
+      onBasePercentage: awayStats.onBasePercentage ?? 'N/A',
+      sluggingPercentage: awayStats.sluggingPercentage ?? 'N/A'
+    };
+
+    console.log('Fetched Batting Averages:', {
+      home: teamStats.value.home?.battingAverage,
+      away: teamStats.value.away?.battingAverage
+    });
+  } catch (error) {
+    console.error('Error fetching team stats:', error);
+  }
+}
 </script>
 
 <style scoped>
